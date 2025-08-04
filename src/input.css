@@ -438,8 +438,8 @@ ol li {
 }
 
 .stepper-content {
-    @apply max-h-0 overflow-hidden transition-all dura
-
+    @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+}
 }
 
 /*.elfsight-app-910c3c72-af3d-4436-a387-fc929db98d65{@apply m-0 p-0;height:0!important;overflow:hidden!important}div[class*="elfsight-app"]{@apply m-0 p-0}div[class*="elfsight-app"] iframe{@apply fixed bottom-5 right-5 z-[9999]}*/
