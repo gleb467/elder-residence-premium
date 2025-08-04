@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="uk" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🇺🇦 Пансіонат для літніх людей «Шанс»</title>
+    <meta name="description" content="Приватний пансіонат для літніх людей преміум-класу в Дніпрі. Індивідуальний підхід, медичний супровід, комфортне проживання з гідністю.">
+    <!-- Preconnect и preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preload" href="./dist/output.css" as="style">
     <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body class="bg-neutral-light text-neutral-dark">
@@ -136,8 +143,15 @@
             </div>
             <!-- Заменить весь блок с видео на этот -->
             <div class="block w-full md:w-full lg:w-4/5">
-                <div class="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg border-2 border-neutral-light">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uAA9O0sglCA?si=mvF3QyJqbCVjBUj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="youtube-facade relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg border-2 border-neutral-light cursor-pointer" onclick="loadYouTube(this)" data-video-id="uAA9O0sglCA">
+                    <img src="https://img.youtube.com/vi/uAA9O0sglCA/hqdefault.jpg" alt="Відео про пансіонат для літніх людей" class="w-full h-full object-cover" width="320" height="180" loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="absolute inset-0 pointer-events-none rounded-lg border border-white border-opacity-10"></div>
                 </div>
             </div>
@@ -647,7 +661,34 @@
 
 
     <!-- Подключаем JavaScript -->
-    <script src="src/main.js" defer></script>
+<script src="src/main.js" defer></script>
+<script>
+function loadYouTube(element) {
+    // Предотвращаем повторные клики
+    if (element.dataset.loaded === 'true') return;
+    element.dataset.loaded = 'true';
+    
+    const videoId = element.dataset.videoId;
+    
+    // Создаем iframe с оптимизированными параметрами
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`);
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('title', 'О моем подходе к психологической работе');
+    iframe.setAttribute('loading', 'lazy');
+    iframe.className = 'w-full h-full';
+    
+    // Плавная замена
+    element.style.opacity = '0.5';
+    setTimeout(() => {
+        element.innerHTML = '';
+        element.appendChild(iframe);
+        element.style.opacity = '1';
+    }, 200);
+}
+</script>
 <!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
 <!-- <script src="https://static.elfsight.com/platform/platform.js" async></script> -->
 <!-- <div class="elfsight-app-910c3c72-af3d-4436-a387-fc929db98d65" data-elfsight-app-lazy></div> -->
