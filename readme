@@ -1,0 +1,13 @@
+# Elite Elder Care Residence
+
+Premium landing page for elite elder care facility.
+
+## Tech Stack
+- HTML + Tailwind CSS + JavaScript
+- PostCSS for Tailwind compilation
+- Vercel hosting with auto-deploy from GitHub
+
+## Development
+```bash
+npm install
+npm run build

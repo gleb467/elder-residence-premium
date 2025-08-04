@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇺🇦 Пансіонат для літніх людей «Шанс»</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-neutral-light text-neutral-dark">
+    
+    <!-- Шапка с логотипом и меню -->
+    <header class="fixed-header">
+
+        <div class="container flex justify-between items-center py-4">
+            <div class="text-lg font-bold text-neutral-dark flex items-center">
+                <!-- Если будет изображение логотипа -->
+                <img src="images/logo.svg" alt="Пансіонат для літніх людей «Шанс»" class="h-10">
+                <!-- Или только текст -->
+                <span>Шанс</span>
+            </div>
+            <div class="flex items-center">
+                <!-- <a href="tel:380506191220" class="call-button"> -->
+                <a href="tel:380963892020" class="btn btn-secondary btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"> </path></svg>
+                    &nbsp; 096 389-20-20
+                </a>
+                
+                <button id="menu-toggle" class="p-2 ml-2 w-20 rounded-md bg-primary hover:bg-primary-light text-white">
+                    ☰
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu">
+            <div class="flex flex-col items-center py-6">
+                <!-- Навигационные ссылки -->
+                <div class="mb-6 w-full">
+                    <div class="flex flex-col items-center space-y-6 py-4">
+                        <a href="#" class="text-neutral-dark text-lg hover:text-primary">Главная</a>
+                        <a href="#" class="text-neutral-dark text-lg hover:text-primary">Услуги</a>
+                        <a href="#" class="text-neutral-dark text-lg hover:text-primary">Контакты</a>
+                        <a href="#" class="text-neutral-dark text-lg hover:text-primary">О нас</a>
+                        <a href="#" class="text-neutral-dark text-lg hover:text-primary">Блог</a>
+                    </div>
+                </div>
+                
+                <!-- Разделитель -->
+                <div class="w-3/4 h-px bg-white bg-opacity-10 my-4"></div>
+                
+                <!-- Социальные сети -->
+                <div class="flex justify-center space-x-6 my-6">
+                    <a href="https://t.me/karinavarganova" class="text-neutral-dark hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    </a>
+                    <a href="#" class="text-neutral-dark hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="text-neutral-dark hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                    </a>
+                </div>
+                
+                <!-- Разделитель -->
+                <div class="w-3/4 h-px bg-white bg-opacity-10 my-4"></div>
+                
+                <!-- Кнопки контактов -->
+                <div class="flex flex-col items-center space-y-4 mt-4">
+                    <a href="tel:380963892020" class="btn btn-secondary btn-icon w-full sm:w-64">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        096 389-20-20
+                    </a>
+                    <a href="https://t.me/karinavarganova" class="btn btn-primary btn-icon w-full sm:w-64">
+                        <img src="images/telegram.svg" alt="Telegram" class="mr-2 w-5 h-5">
+                        Написать в телеграм
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+<!-- Главный экран -->
+<section class="hero relative h-screen pt-[60px]">
+    <!-- Левая часть - контент -->
+    <div class="hero-content relative z-10 flex flex-col justify-center h-full w-full lg:w-1/2 px-6 md:px-12 lg:px-16 pb-[80px] space-y-6">
+        <!-- Основной заголовок и подзаголовок -->
+<div class="hero-item">
+    <h1 class="heading-xl text-accent mb-4">
+        Пансіонат для літніх людей «Шанс»
+    </h1>
+
+</div>
+        <!-- Разделитель между блоками -->
+        <div class="hero-item w-3/4 h-px bg-white bg-opacity-30 my-10"></div>
+        
+        <!-- Блок призыва к действию -->
+        <div class="cta-block flex flex-col items-start"> <!-- изменил на items-start -->
+            <p class="hero-item italic text-lg text-neutral-dark text-left mb-6">
+                Записаться на консультацию, посмотреть как проходит жизнь в пансионате и узнать как все устроено можно в нашем Telegram-канале. Вся актуальная информация — там.
+            </p>
+            <div class="hero-item flex flex-col sm:flex-row gap-4 items-start"> <!-- изменил на items-start -->
+                <a href="#course-section" class="btn btn-secondary btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                    Подробнее про пансионат
+                </a>
+                <a href="https://t.me/karinavarganova" class="btn btn-primary btn-icon">
+                    <img src="images/telegram.svg" alt="Telegram" class="mr-2 w-5 h-5"> Написать в телеграм
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Правая часть - изображение -->
+    <div class="hero-image absolute top-0 right-0 w-full lg:w-1/2 h-full"></div>
+</section>
+
+
+    <!-- Контент -->
+<main class="container py-12">
+    <section id="course-section" class="section-block p-6 md:p-8 rounded-lg shadow-md my-12">
+        <div class="inline-block bg-neutral-light px-6 py-2 rounded-full mb-6">
+            <span class="text-primary-dark font-semibold text-sm uppercase tracking-wide">ХТО МИ</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+            Пансіонат для літніх людей у Дніпрі
+        </h2>
+
+        <p class="text-lg text-primary-light2 mb-8 font-medium">
+            Повага до віку — у кожній деталі
+        </p>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="block">
+                <p class="item mb-4">Пансионат «ШАНС» — це приватний пансіонат  для літніх людей преміум-класу в Дніпрі , де кожен мешканець отримує індивідуальний підхід, медичний супровід, щире людське ставлення та можливість жити повноцінно — з радістю, гідністю та спокоєм.</p>
+                <p class="item">Наша місія — турбота за вашими самими рідними людьми. Це є проявлення любові. Ми віримо, що поважний вік — це не завершення, а новий змістовний етап життя.</p>
+            </div>
+            <!-- Заменить весь блок с видео на этот -->
+            <div class="block w-full md:w-full lg:w-4/5">
+                <div class="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg border-2 border-neutral-light">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uAA9O0sglCA?si=mvF3QyJqbCVjBUj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="absolute inset-0 pointer-events-none rounded-lg border border-white border-opacity-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Секция "В каких случаях вы можете ко мне обратиться" -->
+    <section class="section-block p-6 md:p-8 rounded-lg shadow-md my-12">
+            <div class="inline-block bg-neutral-light px-6 py-2 rounded-full mb-6">
+                <span class="text-primary-dark font-semibold text-sm uppercase tracking-wide">Наші послуги</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+                Медичний і побутовий догляд з розумом і серцем.
+            </h2>
+            <p class="text-lg text-primary-light2 mb-8 font-medium">
+                Ми пропонуємо:
+            </p>
+            <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 list-none">
+                <li class="list-numbered-item"><span>Постійне або тимчасове проживання</span></li>
+                <li class="list-numbered-item"><span>Догляд при деменції та вікових змінах пам’яті</span></li>
+                <li class="list-numbered-item"><span>Індивідуальне харчування та програми активності</span></li>
+                <li class="list-numbered-item"><span>Реабілітація після інсультів, операцій і травм</span></li>
+                <li class="list-numbered-item"><span>Психологічна, духовна та соціальна підтримка</span></li>
+                <li class="list-numbered-item"><span>Трансфер</span></li>
+                <!-- <li class="list-numbered-item"><span>Організація відеозв'язку з родичами</span></li> -->
+                <!-- <li class="list-numbered-item"><span>Постійний медичний супровід та моніторинг здоров'я</span></li> -->
+                <!-- <li class="list-numbered-item"><span>Допомога з особистою гігієною та повсякденними потребами</span></li> -->
+            </ol>
+    </section>
+
+    <section class="section-block p-6 md:p-8 rounded-lg shadow-md my-12">
+            <div class="inline-block bg-neutral-light px-6 py-2 rounded-full mb-6">
+                <span class="text-primary-dark font-semibold text-sm uppercase tracking-wide">місія</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+                Наша місія — турбота за вашими самими рідними людьми.
+            </h2>
+            <p class="text-lg text-primary-light2 mb-8 font-medium">
+                Це є проявлення любові.
+            </p>
+            <p class="text-base mb-6">Ми віримо, що поважний вік — це не завершення, а новий змістовний етап життя.
+                У пансіонаті ми створюємо простір для проживання літніх людей — ми створюємо атмосферу, де кожен почувається потрібним, гідним поваги та по-справжньому як удома.
+            </p>
+        
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="block w-full flex items-center">
+                    <img src="./images/pic2206eldres325.jpg" alt="Пансіонат для літніх людей «Шанс»" class="w-full max-w-sm rounded-lg shadow-lg object-cover">
+                </div>
+                
+                <div class="block">
+                    <h3 class="text-xl font-semibold mb-4">Наші принципи:</h3>         
+                        <ul class="list-none space-y-2 divide-y divide-neutral-light">
+                            <li class="list-item-icon pt-2 first:pt-0">Повага до особистості й досвіду</li>
+                            <li class="list-item-icon pt-2">Безпека та медичний контроль 24/7</li>
+                            <li class="list-item-icon pt-2">Комфортне проживання в елегантному середовищі</li>
+                            <li class="list-item-icon pt-2">Культурна, соціальна й інтелектуальна програма</li>
+                        </ul>
+                        <button id="certificatesBtn" class="mt-4 bg-primary-dark text-white py-2 px-4 rounded-lg hover:bg-neutral-dark transition">Ліцензії та сертифікати</button>
+                </div>
+            </div>
+
+    </section>
+<!-- Модальное окно с улучшенной каруселью -->
+<div id="certificatesModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-3xl w-full mx-4">
+        <span class="close absolute top-2 right-2 text-2xl cursor-pointer hover:text-primary-dark">&times;</span>
+        <h3 class="text-xl font-bold mb-4 text-center">Ліцензії та сертифікати</h3>
+        
+        <!-- Контейнер карусели без фиксированных кнопок навигации в HTML -->
+        <div class="carousel-container overflow-hidden relative">
+            <div class="carousel flex space-x-4 py-2 px-2">
+                <img src="images/speaker.jpg" alt="Сертификат 1" class="certificate-image">
+                <img src="images/speaker.jpg" alt="Сертификат 2" class="certificate-image">
+                <img src="images/speaker.jpg" alt="Сертификат 3" class="certificate-image">
+                <img src="images/speaker.jpg" alt="Сертификат 4" class="certificate-image">
+                <img src="images/speaker.jpg" alt="Сертификат 5" class="certificate-image">
+                <img src="images/speaker.jpg" alt="Сертификат 6" class="certificate-image">
+            </div>
+            <!-- Кнопки навигации добавляются через JavaScript -->
+        </div>
+    </div>
+</div>
+<section class="section-fullwidth bg-primary-dark py-12">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-white">Послуги та вартість</h2>
+    
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+        <div class="bg-neutral-light p-6 rounded-lg shadow flex flex-col min-h-[400px]">
+          <h3 class="text-xl font-semibold text-neutral-dark">Ціни на проживання</h3>
+
+          <div class="mt-4 overflow-x-auto mb-4"> 
+              <table class="w-full text-left table-auto border-collapse">
+                  <thead>
+                      <tr>
+                          <th class="py-2 px-4 border-b border-neutral-default text-neutral-dark font-medium">Тип кімнати</th>
+                          <th class="py-2 px-4 border-b border-neutral-default text-neutral-dark font-medium">Вартість</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">
+                              1-місне <span class="bg-primary-dark text-white text-xs font-medium px-2.5 py-0.5 rounded-full ml-1">Все включено</span>
+                          </td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">15 050 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">1-місне покращене</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">10 750 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">1-місне</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">9 600 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">2-місне</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">6 350 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">3-місне</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">5 300 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">4-місне</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">4 750 грн / доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4">5-місне</td>
+                          <td class="py-2 px-4 text-neutral-dark font-semibold">4 200 грн / доба</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <a href="#" id="groupTopicsLink" class="text-primary-light font-semibold inline-block mt-2">При одноразовій попередній оплаті знижки<span class="arrow">↗</span></a>
+          
+          <div class="mt-auto pt-4">
+            <div class="border-t border-neutral-dark pt-4">
+              </div>
+            <button class="mt-4 bg-primary-dark text-white py-2 px-4 rounded-lg w-full hover:bg-neutral-dark transition">
+              Зв'язатися в Telegram
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-neutral-light p-6 rounded-lg shadow flex flex-col min-h-[400px]">
+          <h3 class="text-xl font-semibold text-neutral-dark">Спеціальні тарифи на проживання</h3>
+          
+          <div class="mt-4 overflow-x-auto mb-4"> 
+              <table class="w-full text-left table-auto border-collapse">
+                  <thead>
+                      <tr>
+                          <th class="py-2 px-4 border-b border-neutral-default text-neutral-dark font-medium">Назва</th>
+                          <th class="py-2 px-4 border-b border-neutral-default text-neutral-dark font-medium">Вартість</th>
+                          <th class="py-2 px-4 border-b border-neutral-default text-neutral-dark font-medium">Одиниця виміру</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">Денне перебування</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">Добовий тариф - 20%</td>
+                          <td class="py-2 px-4 border-b border-neutral-light">Доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4 border-b border-neutral-light">Тариф Вихідного дня</td>
+                          <td class="py-2 px-4 border-b border-neutral-light text-neutral-dark font-semibold">Добовий тариф + кількість днів</td>
+                          <td class="py-2 px-4 border-b border-neutral-light">Доба</td>
+                      </tr>
+                      <tr>
+                          <td class="py-2 px-4">Тариф Будні дні</td>
+                          <td class="py-2 px-4 text-neutral-dark font-semibold">Добовий тариф</td>
+                          <td class="py-2 px-4">Доба</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <div class="mt-auto pt-4">
+            <div class="border-t border-neutral-dark pt-4">
+              </div>
+            <button class="mt-4 bg-primary-dark text-white py-2 px-4 rounded-lg w-full hover:bg-neutral-dark transition">
+              Зв'язатися в Telegram
+            </button>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+        <!-- Модальное окно для "Примеры тем для групповой терапии" -->
+    <div id="groupTopicsModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+            <span class="close close-groupTopics absolute top-2 right-2 cursor-pointer">&times;</span>
+            <ul class="list-disc pl-5">
+                <li>При оплаті за 3+ місяці - знижка 3%</li>
+                <li>При оплаті за 6+ місяців - знижка 5%</li>
+                <li>При оплаті за 9+ місяців - знижка 7%</li>
+            </ul>
+        </div>
+    </div>
+
+<section class="section-block p-6 md:p-8 rounded-lg shadow-md my-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Як дізнатися більше про пансіонат?</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+        <!-- Степпер -->
+        <div class="order-2 md:order-1">
+            <div class="relative">
+                <!-- Вертикальная линия прогресса -->
+                <div class="absolute left-6 top-0 w-0.5 bg-gray-300 stepper-line" style="height: 100%; margin-top: 24px; margin-bottom: 24px;"></div>
+                <div id="progress-line" class="absolute left-6 top-0 w-0.5 bg-blue-500 stepper-line transition-all duration-500" style="height: 0%; margin-top: 24px;"></div>
+                
+                <!-- Шаги -->
+                <div class="space-y-4">
+                    <!-- Шаг 1 -->
+                    <div class="stepper-item active relative pl-16 pr-4 py-4 rounded-lg" data-step="0">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center flex-1">
+                                <div class="stepper-dot absolute left-4 w-4 h-4 bg-gray-300 rounded-full border-2 border-white shadow-md"></div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800">Перейдіть в Telegram-бот</h3>
+                                    <p class="text-sm text-gray-500">Початок знайомства</p>
+                                </div>
+                            </div>
+                            <div class="expand-icon text-gray-400">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stepper-content ml-0 text-sm text-gray-600">
+                            <p>Натисніть кнопку нижче, щоб перейти в наш зручний Telegram-бот. Це ваш персональний помічник для швидкого доступу до всієї інформації.</p>
+                            <button class="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                                Перейти в бот
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Шаг 2 -->
+                    <div class="stepper-item relative pl-16 pr-4 py-4 rounded-lg" data-step="1">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center flex-1">
+                                <div class="stepper-dot absolute left-4 w-4 h-4 bg-gray-300 rounded-full border-2 border-white shadow-md"></div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800">Ознайомтесь з деталями</h3>
+                                    <p class="text-sm text-gray-500">Вивчення інформації</p>
+                                </div>
+                            </div>
+                            <div class="expand-icon text-gray-400">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stepper-content ml-0 text-sm text-gray-600">
+                            <p>У боті ви зможете переглянути повний перелік послуг, фотогалерею, дізнатися про щоденні заходи та життя в пансіонаті.</p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">Послуги</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Фото</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">Заходи</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Шаг 3 -->
+                    <div class="stepper-item relative pl-16 pr-4 py-4 rounded-lg" data-step="2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center flex-1">
+                                <div class="stepper-dot absolute left-4 w-4 h-4 bg-gray-300 rounded-full border-2 border-white shadow-md"></div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800">Зв'яжіться з нами</h3>
+                                    <p class="text-sm text-gray-500">Планування візиту</p>
+                                </div>
+                            </div>
+                            <div class="expand-icon text-gray-400">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stepper-content ml-0 text-sm text-gray-600">
+                            <p>Задайте будь-які питання менеджеру та запишіться на безкоштовну екскурсію до пансіонату прямо через Telegram-бот.</p>
+                            <div class="mt-3 flex gap-2">
+                                <button class="px-3 py-1 bg-green-500 text-white rounded text-xs hover:bg-green-600 transition-colors">
+                                    📞 Дзвінок
+                                </button>
+                                <button class="px-3 py-1 bg-blue-500 text-white rounded text-xs hover:bg-blue-600 transition-colors">
+                                    📅 Екскурсія
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Изображение -->
+        <div class="order-1 md:order-2">
+            <div class="relative rounded-lg overflow-hidden shadow-lg border-2 border-gray-200">
+                <div class="w-full aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-full flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 font-medium">Консультація через Telegram</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="section-block p-6 md:p-8 rounded-lg shadow-md my-12 animate-base">
+    <h2 class="heading-lg mb-6">Як дізнатися більше про пансіонат?</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="block order-2 md:order-1">
+            <h3>Перейдіть в Telegram-бот</h3>
+            <p class="item mb-4">Натисніть кнопку нижче, щоб перейти в наш зручний Telegram-бот. Це ваш персональний помічник для швидкого доступу до всієї інформації.</p>
+            <h3>Ознайомтесь з деталями та новинами</h3>
+            <p class="item mb-4">У боті ви зможете переглянути повний перелік послуг, фотогалерею, дізнатися про щоденні заходи та життя в пансіонаті.</p>
+            <h3>Зв'яжіться з нами та заплануйте візит</h3>
+            <p class="item mb-4">Задайте будь-які питання менеджеру та запишіться на безкоштовну екскурсію до пансіонату прямо через Telegram-бот.</p>
+        </div>
+
+        <div class="block w-full md:w-full lg:w-4/5 order-1 md:order-2 justify-self-end">
+            <div class="relative rounded-lg overflow-hidden shadow-lg border-2 border-neutral-light">
+                <img src="images/consult_how2.png" alt="Процесс психологической консультации" class="w-full max-w-md md:max-w-lg rounded-lg shadow-lg">
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="section-block p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Отзывы клиентов</h2>
+    <div class="carousel-container overflow-hidden relative">
+        <div class="reviews-carousel carousel flex space-x-4 py-2 px-2">
+            <div class="review-item flex-shrink-0 p-4 bg-neutral rounded-lg w-full md:w-80">
+                <p class="item italic">"Этот канал изменил мою жизнь. Я наконец-то начала понимать свои эмоции и работать с ними."</p>
+                <p class="item mt-2 font-semibold">Елена, 32 года</p>
+            </div>
+            <div class="review-item flex-shrink-0 p-4 bg-neutral rounded-lg w-full md:w-80">
+                <p class="item italic">"Очень структурированная и полезная информация. Применяю техники каждый день."</p>
+                <p class="item mt-2 font-semibold">Михаил, 28 лет</p>
+            </div>
+            <!-- Можно добавить больше отзывов -->
+            <div class="review-item flex-shrink-0 p-4 bg-neutral rounded-lg w-full md:w-80">
+                <p class="item italic">"После консультаций я начал лучше понимать себя и свои цели. Спасибо за профессионализм!"</p>
+                <p class="item mt-2 font-semibold">Андрей, 40 лет</p>
+            </div>
+            <div class="review-item flex-shrink-0 p-4 bg-neutral rounded-lg w-full md:w-80">
+                <p class="item italic">"Групповые занятия оказались очень полезными, я нашла поддержку и понимание."</p>
+                <p class="item mt-2 font-semibold">Мария, 35 лет</p>
+            </div>
+        </div>
+    </div>
+</section>
+            
+    <section class="section-block p-6 rounded-lg shadow-md mt-8">
+        <h2 class="heading-lg">Частые вопросы</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question w-full flex items-center justify-between p-4 text-left bg-neutral-light rounded-lg">
+                    <span class="font-semibold">Як потрапити на екскурсію до пансіонату?</span>
+                    <svg class="faq-icon transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden">
+                    <div class="p-4 bg-white rounded-b-lg border-t border-neutral-dark border-opacity-20">
+                        <p class="text-neutral-dark">Щоб домовитися про безкоштовну екскурсію, будь ласка, зв'яжіться з нашим менеджером через Telegram-бот або зателефонуйте нам за номером [ТЕЛЕФОН].</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item mt-4">
+                <button class="faq-question w-full flex items-center justify-between p-4 text-left bg-neutral-light rounded-lg">
+                    <span class="font-semibold">Які умови проживання та типи кімнат ви пропонуєте?</span>
+                    <svg class="faq-icon transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden">
+                    <div class="p-4 bg-white rounded-b-lg border-t border-neutral-dark border-opacity-20">
+                        <p class="text-neutral-dark">У нас є комфортні одно-, дво- та багатомісні кімнати, обладнані всім необхідним для комфортного перебування. Всю інформацію про типи кімнат та фото можна знайти в нашому Telegram-каналі, посилання на який є в боті.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item mt-4">
+                <button class="faq-question w-full flex items-center justify-between p-4 text-left bg-neutral-light rounded-lg">
+                    <span class="font-semibold">Чи надається медична допомога та реабілітація?</span>
+                    <svg class="faq-icon transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden">
+                    <div class="p-4 bg-white rounded-b-lg border-t border-neutral-dark border-opacity-20">
+                        <p class="text-neutral-dark">Так, наші мешканці отримують цілодобовий медичний нагляд. Ми також пропонуємо індивідуальні реабілітаційні програми за призначенням лікаря.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item mt-4">
+                <button class="faq-question w-full flex items-center justify-between p-4 text-left bg-neutral-light rounded-lg">
+                    <span class="font-semibold">Як відбувається процес адаптації нового мешканця?</span>
+                    <svg class="faq-icon transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden">
+                    <div class="p-4 bg-white rounded-b-lg border-t border-neutral-dark border-opacity-20">
+                        <p class="text-neutral-dark">Ми забезпечуємо м'яку та поступову адаптацію, враховуючи індивідуальні особливості кожного. Наші фахівці допомагають новим мешканцям почуватися комфортно та безпечно.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item mt-4">
+                <button class="faq-question w-full flex items-center justify-between p-4 text-left bg-neutral-light rounded-lg">
+                    <span class="font-semibold">Як часто можна відвідувати родичів?</span>
+                    <svg class="faq-icon transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden">
+                    <div class="p-4 bg-white rounded-b-lg border-t border-neutral-dark border-opacity-20">
+                        <p class="text-neutral-dark">Відвідування родичів можливе в будь-який зручний для вас час, за попередньою домовленістю. Ми завжди раді гостям.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    
+    <!-- Футер -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="footer-container">
+        <!-- Сначала широкий блок про психологическую помощь -->
+        <div class="footer-column w-full mb-6">
+            <h3>Про нас</h3>
+            <p class="text-neutral mb-4">Пансионат для літніх людей</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row justify-between gap-8 md:col-span-2">
+            <!-- Первая колонка футера -->
+            <div class="footer-column w-full md:w-1/3">
+                
+                <!-- Блок Медиаканалы -->
+                <div class="footer-column">
+                    <h3>Медиаканалы</h3>
+                    <div class="flex flex-col">
+                        <a href="#" class="flex items-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                            YouTube канал
+                        </a>
+                        <a href="https://t.me/karinavarganova" class="flex items-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                            Telegram канал
+                        </a>
+                        <a href="#" class="flex items-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            Instagram канал
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Остальные колонки без изменений -->
+            <div class="footer-column w-full md:w-1/3">
+                <h3>Навигация</h3>
+                <a href="#">Главная</a>
+                <a href="#">Услуги</a>
+                <a href="#">Контакты</a>
+                <a href="#">Блог</a>
+                <a href="#">О нас</a>
+            </div>
+            
+            <div class="footer-column w-full md:w-1/3">
+                <h3>Контакты</h3>
+                <a href="tel:380963892020" class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    096 389-20-20
+                </a>
+                <a href="https://t.me/karinavarganova" class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    Telegram
+                </a>
+                <a href="mailto:info@example.com" class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    info@example.com
+                </a>
+                <div class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>г. Днепр, Украина</span>
+                    <span class="ml-2">🇺🇦</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Кнопка "Вернуться наверх" -->
+<!-- <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary bg-opacity-70 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 w-16 h-16 flex items-center justify-center">
+    <svg class="circle-progress absolute inset-0" width="64" height="64" viewBox="0 0 64 64">
+        <circle class="circle-bg" cx="32" cy="32" r="29" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3"></circle>
+        <circle class="circle-fg" cx="32" cy="32" r="29" fill="none" stroke="white" stroke-width="3" transform="rotate(-90 32 32)"></circle>
+    </svg>
+    <svg class="arrow relative z-10" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button> -->
+
+
+    <!-- Подключаем JavaScript -->
+    <script src="src/main.js" defer></script>
+<!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
+<!-- <script src="https://static.elfsight.com/platform/platform.js" async></script> -->
+<!-- <div class="elfsight-app-910c3c72-af3d-4436-a387-fc929db98d65" data-elfsight-app-lazy></div> -->
+</body>
+</html>

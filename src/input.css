@@ -1,0 +1,445 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Компоненты для стилей */
+@layer components {
+  /* Анимация - базовые классы */
+  .animate-base {
+    @apply opacity-0 translate-y-8 transition-all duration-1000 ease-in-out;
+  }
+  
+  .animate-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Применение базовой анимации к элементам */
+  .hero-item,
+  .section-block,
+  .block,
+  .item {
+    @apply animate-base;
+  }
+
+
+.section-block {
+  @apply animate-base rounded-lg shadow-md my-12 bg-gradient-to-b from-white to-neutral-light;
+}
+  
+  .section-block.visible,
+  .block.visible,
+  .item.visible,
+  .animate-base.visible {
+    @apply animate-visible;
+  }
+
+/* Добавьте это в ваш CSS */
+body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-neutral-light;
+}
+
+.section-fullwidth {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.container {
+    @apply max-w-[1200px] mx-auto px-4;
+}
+  
+/* Кнопки - объединённые стили */
+.btn {
+ @apply px-6 py-3 rounded-lg font-semibold transition-colors duration-100;
+}
+
+.btn-primary {
+ @apply bg-primary text-white border-2 border-primary-light hover:bg-primary-light;
+}
+
+.btn-secondary {
+ @apply bg-transparent border-2 border-accent-light text-neutral-dark hover:border-accent hover:text-accent;
+}
+
+.btn-icon {
+ @apply flex items-center justify-center;
+}
+
+.btn-icon svg,
+.btn-icon img {
+ @apply transition-transform duration-300;
+ margin-right: 0.5rem;
+}
+
+.btn-primary svg,
+.btn-primary img {
+ @apply text-primary;
+}
+
+.btn-secondary svg,
+.btn-secondary img {
+ @apply text-accent-light;
+}
+
+.btn-secondary:hover svg,
+.btn-secondary:hover img {
+ @apply text-accent transform translate-x-1;
+}
+
+.btn-primary:hover svg,
+.btn-primary:hover img {
+ @apply transform translate-x-1;
+}
+
+  /* Заголовки */
+  .heading-xl {
+    @apply text-3xl md:text-5xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  /* Фиксированная шапка */
+.fixed-header {
+  @apply fixed top-0 left-0 right-0 z-50 h-[10vh] bg-white bg-opacity-90 
+         backdrop-blur border-b border-neutral border-opacity-20 transition-transform duration-500;
+}
+  
+/*  .fixed-header.-translate-y-full {
+    @apply -translate-y-full;
+  }*/
+
+  .fixed-header.-translate-y-full {
+    transform: translateY(-100%);
+}
+
+  
+  /* Мобильное меню */
+#mobile-menu {
+  @apply fixed top-[10vh] right-0 w-[60%] h-screen bg-white bg-opacity-95 
+         translate-x-full transition-transform duration-300 z-50 overflow-y-auto;
+}
+  #mobile-menu.open {
+    @apply translate-x-0;
+  }
+  #mobile-menu a {
+    @apply opacity-0 translate-x-5 transition-all duration-300 ease-in-out;
+  }
+  #mobile-menu.open a {
+    @apply opacity-100 translate-x-0;
+  }
+  /* Задержки для мобильного меню */
+  #mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+  #mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+  #mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+  #mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+  #mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
+  
+  /* Кнопка звонка */
+  .call-button {
+    @apply flex items-center justify-center py-2 px-4 border-2 border-primary 
+           text-white transition-colors duration-300 rounded;
+    max-width: 220px;
+  }
+  
+  .call-button:hover {
+    @apply bg-primary bg-opacity-20;
+  }
+  .call-button svg {
+    @apply mr-2;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Видео */
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 16;
+  }
+  .aspect-h-9 {
+    --tw-aspect-h: 9;
+  }
+  .aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+
+      /* списки */
+.list-item-icon {
+  @apply relative pl-6 text-neutral-dark;
+}
+
+.list-item-icon::before {
+  content: '•';
+  @apply absolute left-0 top-1 text-primary; /* Цвет маркера - primary */
+}
+
+
+.list-none.space-y-2.divide-y.divide-neutral-light > li {
+  @apply pb-2 pt-2 first:pt-0 last:pb-0;
+}
+
+
+
+/* Стили для нумерованного списка в сетке */
+.list-numbered-item {
+  @apply relative p-4 bg-white rounded-lg border border-neutral-light 
+         flex items-center h-full text-neutral-dark 
+         shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+.list-numbered-item::before {
+  content: counter(list-item, decimal-leading-zero);
+  @apply absolute top-4 left-4 text-primary text-4xl font-bold opacity-20 
+         leading-none;
+}
+.list-numbered-item > span {
+  @apply pl-16; /* Отступ для текста после номера */
+}
+ol {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 list-none 
+         space-y-0; /* Убираем вертикальные отступы между элементами */
+  counter-reset: list-item;
+}
+ol li {
+  counter-increment: list-item;
+  @apply h-full; /* Добавляем явное указание на полную высоту */
+}
+
+      /* Карточки */
+.card-content {
+  @apply flex flex-col h-full;
+}
+
+.card-footer {
+  @apply mt-auto pt-4;
+}
+
+      /* FAQ секция */
+  /* Кнопка возврата наверх */
+  #back-to-top {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+  #back-to-top.visible {
+    @apply opacity-100;
+  }
+  
+  #back-to-top:hover {
+    @apply bg-opacity-100;
+  }
+  
+  /* Секции футера - объединенные стили */
+  .footer-column {
+    @apply flex flex-col;
+  }
+
+  .footer-column h3 {
+    @apply text-xl font-bold mb-4;
+  }
+
+  .footer-column a {
+    @apply mb-2 text-neutral hover:text-neutral-light;
+  }
+
+  .footer-divider {
+    @apply w-full h-px bg-white bg-opacity-10 my-4;
+  }
+
+  /* Локация с флагом */
+  .location-block {
+    @apply flex items-center justify-center mt-2.5;
+  }
+
+  .location-block .flag {
+    @apply ml-1.5;
+  }
+
+/*  .desktop-container {
+    @apply w-full mx-auto;
+    max-width: 1200px; 
+  }*/
+  .footer-container {
+    @apply container mx-auto px-8 md:px-6 lg:px-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+/* Удаляем ненужные стили hover и обновляем стили карусели */
+.carousel-container {
+  @apply w-full relative;
+  margin: 0 -1rem; /* Отрицательный отступ для эффекта "подглядывания" */
+  padding: 0 1rem; /* Компенсация отрицательного отступа */
+}
+
+.carousel {
+  @apply flex items-center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+  scrollbar-width: none; /* Скрываем полосу прокрутки для Firefox */
+  -ms-overflow-style: none; /* Скрываем полосу прокрутки для IE/Edge */
+  padding: 1rem 0;
+}
+
+/* Скрываем полосу прокрутки для Chrome/Safari */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.certificate-image {
+  @apply flex-shrink-0 rounded-lg shadow-md;
+  width: 250px; /* Фиксированная ширина для последовательной прокрутки */
+  height: auto;
+  max-height: 350px; /* Ограничиваем высоту */
+  object-fit: contain;
+  scroll-snap-align: start;
+  /* Убираем эффект при наведении */
+  transition: none;
+}
+
+/* Убираем эффект при наведении на сертификаты */
+.certificate-image:hover {
+  @apply shadow-md; /* Оставляем ту же тень */
+  transform: none; /* Убираем увеличение */
+}
+
+/* Стиль для модального окна */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Кнопки карусели */
+.carousel-nav-button {
+  @apply bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center;
+  @apply focus:outline-none transition-colors;
+  z-index: 10;
+}
+
+/* Стили для карусели отзывов */
+.reviews-carousel .review-item {
+  @apply flex-shrink-0 rounded-lg shadow-md;
+  scroll-snap-align: start;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-carousel .review-item p.item.italic {
+  flex-grow: 1;
+}
+
+/* Кнопки навигации отзывов */
+.reviews-nav-button {
+  @apply bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center;
+  @apply focus:outline-none transition-colors;
+  z-index: 10;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero-image {
+  background-image: url('../images/hero-desktop.webp');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  mask: linear-gradient(90deg, transparent 0%, black 30%, black 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0%, black 30%, black 100%);
+}
+
+@media screen and (max-width: 1023px) {
+  .hero-image {
+    background-image: url('../images/hero-mobile.webp');
+    background-position: 70% center;
+    background-size: contain;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    transform: translateY(40%);
+    mask: linear-gradient(135deg, transparent 0%, transparent 15%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.6) 55%, black 75%);
+    -webkit-mask: linear-gradient(135deg, transparent 0%, transparent 15%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.6) 55%, black 75%);
+  }
+}
+
+        /* Кастомные стили для степпера */
+/* Кастомные стили для степпера */
+/* Кастомные стили для степпера */
+.stepper-item {
+    @apply cursor-pointer transition-all duration-300 ease-in-out border border-neutral-light rounded-lg;
+}
+
+.stepper-item:hover {
+    @apply bg-neutral-light bg-opacity-50;
+}
+
+.stepper-item.active {
+    @apply bg-primary-light bg-opacity-10 border-primary-light;
+    border-left: 4px solid;
+    border-left-color: theme('colors.primary.DEFAULT');
+}
+
+.stepper-dot {
+    @apply transition-all duration-300 ease-in-out bg-neutral border-2 border-white shadow-md;
+}
+
+.stepper-item.active .stepper-dot {
+    @apply bg-primary transform scale-110;
+}
+
+.stepper-item.active .stepper-dot::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full;
+    transform: translate(-50%, -50%);
+}
+
+.stepper-item.completed .stepper-dot {
+    @apply bg-accent;
+}
+
+.stepper-item.completed .stepper-dot::after {
+    content: '✓';
+    @apply absolute top-1/2 left-1/2 text-white text-xs font-bold;
+    transform: translate(-50%, -50%);
+}
+
+.stepper-line {
+    @apply transition-all duration-500 ease-in-out bg-neutral;
+}
+
+#progress-line {
+    @apply bg-primary transition-all duration-500 ease-in-out;
+}
+
+.expand-icon {
+    @apply transition-transform duration-300 ease-in-out text-neutral;
+}
+
+.stepper-item.active .expand-icon {
+    @apply transform rotate-90 text-primary;
+}
+
+.stepper-content {
+    @apply max-h-0 overflow-hidden transition-all dura
+
+}
+
+/*.elfsight-app-910c3c72-af3d-4436-a387-fc929db98d65{@apply m-0 p-0;height:0!important;overflow:hidden!important}div[class*="elfsight-app"]{@apply m-0 p-0}div[class*="elfsight-app"] iframe{@apply fixed bottom-5 right-5 z-[9999]}*/
